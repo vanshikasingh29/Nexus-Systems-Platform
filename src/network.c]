@@ -1,0 +1,49 @@
+#include "network.h"
+
+#include <stdio.h>
+
+
+void create_packet(
+    NetworkPacket *packet,
+    int source_port,
+    int destination_port,
+    int payload_size
+)
+{
+    if (packet == NULL)
+    {
+        return;
+    }
+
+
+    packet->source_port =
+        source_port;
+
+    packet->destination_port =
+        destination_port;
+
+    packet->payload_size =
+        payload_size;
+}
+
+
+void print_packet(
+    const NetworkPacket *packet
+)
+{
+    if (packet == NULL)
+    {
+        return;
+    }
+
+
+    printf(
+        "Packet: %d -> %d | payload=%d bytes\n",
+
+        packet->source_port,
+
+        packet->destination_port,
+
+        packet->payload_size
+    );
+}
